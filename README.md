@@ -1,5 +1,5 @@
 # nfs-torture
-Docker powered torture suite for nfs server
+Docker powered torture suite for nfs servers
 
 Based on https://hub.docker.com/r/d3fk/nfs-client/
 
