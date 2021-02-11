@@ -1,11 +1,11 @@
 # nfs-torture
 Docker powered torture suite for NFS servers!
 
-Based on https://hub.docker.com/r/d3fk/nfs-client/
+Based on https://hub.docker.com/r/d3fk/nfs-client/\
 
 Requisites:
 - Debian 10
-- a NFS server with some files on it (192.168.1.100 in this example)
+- a NFS server with some files on it (192.168.1.100 in this example)\
 
 How to, client side:
 
@@ -24,7 +24,7 @@ apt-get update
 
 apt-get install docker-ce docker-ce-cli containerd.io
 ```
-
+\
 nano torture-mount.sh
 
 ```
@@ -40,7 +40,7 @@ docker container exec -u 0 $container sh -c "mount | grep nfs4"
 sleep $brake
 free -h
 ```
-
+\
 - spawn 50 clients:
 
 ```
@@ -48,7 +48,7 @@ seq 50 | xargs -I -- ./torture-mount.sh
 ```
 
 This will eat up around 3.5 gigs of RAM!
-
+\
 - put some stress on a randomly chosen container:
 
 nano md5stres.sh
@@ -61,7 +61,7 @@ docker container exec -u 0 $casuale sh -c "find /mnt/nfs-1/ -not -path '*/\.*' -
 ```
 
 This will md5sum every single file found in the remote share!
-
+\
 - to clean up all this mess:
 
 ```
