@@ -57,6 +57,7 @@ This will md5sum every single file found in the remote share!
 
 - to clean up all this mess:
 
+nano abandon.sh
 ```
 #!/bin/bash
 docker ps -a | sed '1d' | awk '{print $1}' >/tmp/remove.lst
@@ -64,7 +65,7 @@ while read c; do
 echo $c
 docker rm -f $c
 done </tmp/remove.lst
-docker system prune -a
+echo -e "y\n" | docker system prune -a
 ```
 
 ***Be careful! All your containers will be vaporized!***
