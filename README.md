@@ -74,4 +74,4 @@ done </tmp/remove.lst
 docker system prune -a
 ```
 
-***Be careful! All of your containers will be vaporized!***
+***Be careful! All your containers will be vaporized!***
