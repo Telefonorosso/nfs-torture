@@ -15,7 +15,7 @@ apt-get install apt-transport-https ca-certificates curl gnupg-agent software-pr
 curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 apt-get update
-apt-get install docker-ce docker-ce-cli containerd.io
+apt-get install docker-ce docker-ce-cli containerd.io parallel
 ```
 
 nano torture-mount.sh
@@ -54,6 +54,26 @@ docker container exec -u 0 $casuale sh -c "find /mnt/nfs-1/ -not -path '*/\.*' -
 ```
 
 This will md5sum every single file found in the remote share!
+
+nano straw.sh
+
+```
+#!/bin/bash
+docker ps -a | sed '1d' | awk '{print $1}' >/tmp/strawsh.lst
+while read c; do
+echo $c
+com="dd if=/dev/urandom of=/mnt/nfs-1/stress/garbage-$(pwgen 11 1) bs=32K count=1"
+docker container exec -u 0 $c sh -c "$com"
+done </tmp/strawsh.lst
+```
+
+- write test:
+
+```
+seq 50 | parallel -n0 ./strawsh
+```
+
+This will deluge-write 32K garbage files in the root directory of the remote share, with 50x parallelism
 
 - to clean up all this mess:
 
