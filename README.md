@@ -1,7 +1,5 @@
 # nfs-torture
-Docker powered torture suite for NFS servers
-
-Based on https://hub.docker.com/r/d3fk/nfs-client/
+Docker powered torture suite for NFS servers based on https://hub.docker.com/r/d3fk/nfs-client/
 
 Requisites:
 - Debian 10
