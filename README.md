@@ -19,7 +19,7 @@ apt-get install docker-ce docker-ce-cli containerd.io```
 
 - torture-mount.sh
 
-#!/bin/bash
+```#!/bin/bash
 
 brake=".1"
 
@@ -32,7 +32,7 @@ docker container exec -u 0 $container sh -c "mount 10.1.0.1:/ /mnt/nfs-1/"
 sleep $brake
 docker container exec -u 0 $container sh -c "mount | grep nfs4"
 sleep $brake
-free -h
+free -h```
 
 
 
