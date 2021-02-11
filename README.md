@@ -25,7 +25,7 @@ apt-get update
 apt-get install docker-ce docker-ce-cli containerd.io
 ```
 
-- torture-mount.sh
+nano torture-mount.sh
 
 ```
 #!/bin/bash
@@ -51,7 +51,7 @@ This will eat up around 3.5 gigs of RAM!
 
 - put some stress on a randomly chosen container:
 
-- md5stres.sh
+nano md5stres.sh
 
 ```
 #!/bin/bash
@@ -62,5 +62,16 @@ docker container exec -u 0 $casuale sh -c "find /mnt/nfs-1/ -not -path '*/\.*' -
 
 This will md5sum every single file found in the remote share!
 
-- clean up all the mess
+- to clean up all this mess:
 
+```
+#!/bin/bash
+docker ps -a | sed '1d' | awk '{print $1}' >/tmp/remove.lst
+while read c; do
+echo $c
+docker rm -f $c
+done </tmp/remove.lst
+docker system prune -a
+```
+
+Be careful! All of your containers will be vaporized!
