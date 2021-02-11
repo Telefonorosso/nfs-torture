@@ -4,7 +4,7 @@ Based on https://hub.docker.com/r/d3fk/nfs-client/
 
 Requisites:
 - Debian 10
-- a NFS server with some files on it (192.168.1.100 in this example)\
+- a NFS server with some files on it (192.168.1.100 in this example)
 
 How to, client side:
 - Install Docker
