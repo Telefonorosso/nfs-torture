@@ -1,5 +1,5 @@
 # nfs-torture
-Docker powered torture suite for nfs servers
+Docker powered torture suite for NFS servers
 
 Based on https://hub.docker.com/r/d3fk/nfs-client/
 
@@ -74,4 +74,4 @@ done </tmp/remove.lst
 docker system prune -a
 ```
 
-Be careful! All of your containers will be vaporized!
+***Be careful! All of your containers will be vaporized!***
