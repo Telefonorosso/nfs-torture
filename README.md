@@ -10,16 +10,19 @@ Requisites:
 How to, client side:
 - Install Docker
 
-```apt-get update
+```
+apt-get update
 apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 apt-get update
-apt-get install docker-ce docker-ce-cli containerd.io```
+apt-get install docker-ce docker-ce-cli containerd.io
+```
 
 - torture-mount.sh
 
-```#!/bin/bash
+```
+#!/bin/bash
 
 brake=".1"
 
@@ -32,7 +35,8 @@ docker container exec -u 0 $container sh -c "mount 10.1.0.1:/ /mnt/nfs-1/"
 sleep $brake
 docker container exec -u 0 $container sh -c "mount | grep nfs4"
 sleep $brake
-free -h```
+free -h
+```
 
 
 
