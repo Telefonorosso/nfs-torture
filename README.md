@@ -75,6 +75,8 @@ seq 50 | parallel -n0 ./strawsh
 
 This will deluge-write 32K garbage files in the root directory of the remote share, with 50x parallelism
 
+(quite stressful for the client, too!)
+
 - to clean up all this mess:
 
 nano abandon.sh
